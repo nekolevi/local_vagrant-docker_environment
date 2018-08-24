@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  nginx: 
+    build: ./docker/nginx
+    ports: 
+      - "80:80"
+    links: 
+      - php
+
+  php: 
+    build: ./docker/php7-fpm
+    volumes:
+      - ./app:/var/www/html
